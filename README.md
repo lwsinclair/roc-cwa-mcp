@@ -1,65 +1,96 @@
-# 中華民國中央氣象局 MCP Server
+# Taiwan Central Weather Administration MCP Server
 
-這是一個與中華民國中央氣象局 (CWA) API 對接的 Model Context Protocol (MCP) 服務器，提供簡化的天氣數據獲取功能。
+This project provides a Model Context Protocol (MCP) server that interfaces with the Taiwan Central Weather Administration (CWA) API, allowing you to easily access weather data for Taiwan.
 
-## 功能
+[中文版](README_ZH.md)
 
-- 獲取台灣各縣市未來 3 天的天氣預報數據
-- 自動數據清理與格式轉換
-- 簡化的 API 輸出，僅包含必要信息
+## CWA API Resources
 
-## 依賴
+To use this project, you need to obtain an API key from the Central Weather Administration:
+
+- CWA Open Data Platform: https://opendata.cwa.gov.tw/index
+- API Documentation: https://opendata.cwa.gov.tw/dist/opendata-swagger.html
+- API Key Application Guide: https://www.hlbh.hlc.edu.tw/resource/openfid.php?id=38959
+
+## Features
+
+- Get 3-day weather forecast data for Taiwan counties and cities
+- Get 1-week weather forecast data for Taiwan counties and cities
+- Get historical rainfall data for the past three days
+- Automatic data cleaning and format conversion
+- Simplified API output with only essential information
+
+## System Requirements
 
 - Python 3.10+
 - MCP CLI 1.6.0+
-- Requests 2.28.0+
+- uv package manager
 
-## 安裝
+## Installation
 
-1. 確保您已安裝 Python 3.10 或更高版本
+1. Ensure you have Python 3.10 or higher installed
 
-2. 安裝依賴：
+2. Install dependencies using uv:
 
 ```bash
-pip install -e .
-# 或使用 uv
+# Install project dependencies using uv
 uv pip install -e .
 ```
 
-## 使用方法
+## Usage
 
-### 啟動服務器
+### Starting the Server
 
-您需要在啟動時提供中央氣象局的 API Key：
+#### Windows Users
 
 ```bash
-python src/server.py <your_api_key>
+# Execute in Command Prompt or PowerShell
+uv --directory your_project_path run src/server.py your_API_key
 ```
 
-### 使用 MCP 工具
+#### Mac and Linux Users
 
-本服務器提供一個主要工具：`get_3_days_weather`，用於獲取指定縣市的 3 天天氣預報數據。
+```bash
+# Execute in Terminal
+uv --directory your_project_path run src/server.py your_API_key
+```
 
-#### get_3_days_weather
+### Available MCP Tools
 
-輸入參數：
+This server provides the following three main tools:
 
-- `location_name` (string)：縣市名稱，必須是有效的台灣縣市名稱
+#### 1. get_3_days_weather
 
-有效的縣市名稱包括：宜蘭縣, 花蓮縣, 臺東縣, 澎湖縣, 金門縣, 連江縣, 臺北市, 新北市, 桃園市, 臺中市, 臺南市, 高雄市, 基隆市, 新竹縣, 新竹市, 苗栗縣, 彰化縣, 南投縣, 雲林縣, 嘉義縣, 嘉義市, 屏東縣
+Get 3-day weather forecast data for a specified county or city.
 
-輸出：
+Parameters:
 
-- 包含天氣數據的列表，每個元素代表一個天氣要素（如溫度、濕度等）及其時間序列數據。
+- `location_name` (string): County or city name, must be a valid Taiwan county or city name
 
-### 數據格式
+Valid county/city names include: Yilan County, Hualien County, Taitung County, Penghu County, Kinmen County, Lienchiang County, Taipei City, New Taipei City, Taoyuan City, Taichung City, Tainan City, Kaohsiung City, Keelung City, Hsinchu County, Hsinchu City, Miaoli County, Changhua County, Nantou County, Yunlin County, Chiayi County, Chiayi City, Pingtung County
 
-輸出數據格式如下：
+#### 2. get_1_week_weather
+
+Get 1-week weather forecast data for a specified county or city.
+
+Parameters:
+
+- `location_name` (string): County or city name, must be a valid Taiwan county or city name
+
+#### 3. get_historical_rainfall
+
+Get rainfall data for the past three days.
+
+No parameters required.
+
+### Data Format
+
+#### Weather Forecast Data Format
 
 ```json
 [
   {
-    "ElementName": "溫度",
+    "ElementName": "Temperature",
     "Time": [
       ["2025-04-11T00:00", "21"],
       ["2025-04-11T01:00", "21"],
@@ -67,7 +98,7 @@ python src/server.py <your_api_key>
     ]
   },
   {
-    "ElementName": "相對濕度",
+    "ElementName": "Relative Humidity",
     "Time": [
       ["2025-04-11T00:00", "90"],
       ["2025-04-11T01:00", "89"],
@@ -78,23 +109,59 @@ python src/server.py <your_api_key>
 ]
 ```
 
-### 支持的天氣要素
+#### Rainfall Data Format
 
-- 溫度
-- 相對濕度
-- 體感溫度
-- 舒適度指數
-- 風向
-- 風速
-- 3小時降雨機率
-- 天氣現象
-- 天氣預報綜合描述
+```json
+{
+  "rain_labels": ["Now", "Past10Min", "Past1hr", "Past3hr", "Past6Hr", "Past12hr", "Past24hr", "Past2days", "Past3days"],
+  "stations": [
+    {
+      "name": "Station Name",
+      "time": "Observation Time",
+      "loc": "County,Town",
+      "geo": [latitude, longitude],
+      "rain": [current, past10min, past1hr, past3hr, past6hr, past12hr, past24hr, past2days, past3days]
+    },
+    ...
+  ]
+}
+```
 
-**注意**：「露點溫度」欄位已從輸出中移除。
+### Supported Weather Elements
 
-## API 來源
+#### 3-Day Forecast
 
-本項目使用中華民國中央氣象局的開放資料 API：
+- Temperature
+- Relative Humidity
+- Apparent Temperature
+- Comfort Index
+- Wind Direction
+- Wind Speed
+- 3-hour Precipitation Probability
+- Weather Phenomenon
+- Comprehensive Weather Description
 
-- API 端點：https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-089
-- 資料集：臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來3天(逐3小時)
+#### 1-Week Forecast
+
+- Average Temperature
+- Maximum Temperature
+- Minimum Temperature
+- Average Relative Humidity
+- Maximum Apparent Temperature
+- Minimum Apparent Temperature
+- Maximum Comfort Index
+- Minimum Comfort Index
+- Wind Speed
+- Wind Direction
+- 12-hour Precipitation Probability
+- UV Index
+- Weather Phenomenon
+- Comprehensive Weather Description
+
+## API Data Sources
+
+This project uses the following open data APIs from the Taiwan Central Weather Administration:
+
+- 3-Day Forecast: Taiwan Township Weather Forecast - 3-Day Forecast (3-hour intervals)
+- 1-Week Forecast: Taiwan Township Weather Forecast - 1-Week Weather Forecast
+- Rainfall Data: Automatic Rainfall Station - Rainfall Observation Data
