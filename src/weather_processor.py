@@ -1,55 +1,55 @@
 """
-提供天氣資料處理和清理功能的模組。
+Module providing weather data processing and cleaning functionality.
 """
 
 def clean_three_days_forecast_data(data):
-    """清理和轉換三天天氣預報數據
+    """Clean and transform 3-day weather forecast data
     
     Args:
-        data: 原始天氣數據
+        data: Raw weather data
         
     Returns:
-        list: 處理後的天氣數據
+        list: Processed weather data
         
     Raises:
-        Exception: 如果數據處理過程中出錯
+        Exception: If an error occurs during data processing
     """
     try:
-        # 獲取 WeatherElement 部分
+        # Get WeatherElement section
         weather_elements = data["records"]["Locations"][0]["Location"][0]["WeatherElement"]
         
-        # 處理後的結果
+        # Processed result
         result = []
         
-        # 遍歷每個天氣要素
+        # Iterate through each weather element
         for element in weather_elements:
             element_name = element["ElementName"]
             
-            # 跳過露點溫度
+            # Skip dew point temperature
             if element_name == "露點溫度":
                 continue
                 
-            # 處理時間和數值
+            # Process time and values
             cleaned_element = {
                 "ElementName": element_name,
                 "Time": []
             }
             
             for time_data in element["Time"]:
-                # 處理時間格式
+                # Process time format
                 if "DataTime" in time_data:
-                    # 移除秒和時區，只保留日期和小時
+                    # Remove seconds and timezone, keep date and hour only
                     time_str = time_data["DataTime"].split("+")[0]
-                    # 只保留到分鐘
+                    # Keep only up to minutes
                     time_str = time_str[:16]
                 elif "StartTime" in time_data:
-                    # 對於降雨機率等使用 StartTime 的字段
+                    # For fields using StartTime such as precipitation probability
                     time_str = time_data["StartTime"].split("+")[0]
                     time_str = time_str[:16]
                 
-                # 處理數值
+                # Process values
                 if "ElementValue" in time_data and len(time_data["ElementValue"]) > 0:
-                    # 根據不同的天氣要素類型獲取對應的值
+                    # Get corresponding value based on different weather element types
                     value = None
                     element_value = time_data["ElementValue"][0]
                     
@@ -72,67 +72,67 @@ def clean_three_days_forecast_data(data):
                     elif element_name == "天氣預報綜合描述" and "WeatherDescription" in element_value:
                         value = element_value["WeatherDescription"]
                     
-                    # 添加到結果
+                    # Add to result
                     if value is not None:
                         cleaned_element["Time"].append([time_str, value])
             
-            # 只有當有時間數據時才添加到結果
+            # Only add to result when there is time data
             if cleaned_element["Time"]:
                 result.append(cleaned_element)
             
         return result
     
     except Exception as e:
-        raise Exception(f"數據清理過程中出錯: {str(e)}")
+        raise Exception(f"Error during data cleaning: {str(e)}")
 
 def clean_one_week_forecast_data(data):
-    """清理和轉換一週天氣預報數據
+    """Clean and transform 1-week weather forecast data
     
     Args:
-        data: 原始天氣數據
+        data: Raw weather data
         
     Returns:
-        list: 處理後的天氣數據
+        list: Processed weather data
         
     Raises:
-        Exception: 如果數據處理過程中出錯
+        Exception: If an error occurs during data processing
     """
     try:
-        # 獲取 WeatherElement 部分
+        # Get WeatherElement section
         weather_elements = data["records"]["Locations"][0]["Location"][0]["WeatherElement"]
         
-        # 處理後的結果
+        # Processed result
         result = []
         
-        # 遍歷每個天氣要素
+        # Iterate through each weather element
         for element in weather_elements:
             element_name = element["ElementName"]
             
-            # 跳過平均露點溫度
+            # Skip average dew point temperature
             if element_name == "平均露點溫度":
                 continue
                 
-            # 處理時間和數值
+            # Process time and values
             cleaned_element = {
                 "ElementName": element_name,
                 "Time": []
             }
             
             for time_data in element["Time"]:
-                # 處理時間格式
+                # Process time format
                 if "DataTime" in time_data:
-                    # 移除秒和時區，只保留日期和小時
+                    # Remove seconds and timezone, keep date and hour only
                     time_str = time_data["DataTime"].split("+")[0]
-                    # 只保留到分鐘
+                    # Keep only up to minutes
                     time_str = time_str[:16]
                 elif "StartTime" in time_data:
-                    # 對於降雨機率等使用 StartTime 的字段
+                    # For fields using StartTime such as precipitation probability
                     time_str = time_data["StartTime"].split("+")[0]
                     time_str = time_str[:16]
                 
-                # 處理數值
+                # Process values
                 if "ElementValue" in time_data and len(time_data["ElementValue"]) > 0:
-                    # 根據不同的天氣要素類型獲取對應的值
+                    # Get corresponding value based on different weather element types
                     value = None
                     element_value = time_data["ElementValue"][0]
                     
@@ -165,55 +165,55 @@ def clean_one_week_forecast_data(data):
                     elif element_name == "天氣預報綜合描述" and "WeatherDescription" in element_value:
                         value = element_value["WeatherDescription"]
                     
-                    # 添加到結果
+                    # Add to result
                     if value is not None:
                         cleaned_element["Time"].append([time_str, value])
             
-            # 只有當有時間數據時才添加到結果
+            # Only add to result when there is time data
             if cleaned_element["Time"]:
                 result.append(cleaned_element)
             
         return result
     
     except Exception as e:
-        raise Exception(f"數據清理過程中出錯: {str(e)}")
+        raise Exception(f"Error during data cleaning: {str(e)}")
 
 def clean_historical_rainfall_data(data):
-    """清理和轉換歷史雨量資料
+    """Clean and transform historical rainfall data
     
     Args:
-        data: 原始雨量資料
+        data: Raw rainfall data
         
     Returns:
-        dict: 處理後的雨量資料，包含雨量標籤和各測站雨量資訊
+        dict: Processed rainfall data containing rainfall labels and information for various stations
         
     Raises:
-        Exception: 如果數據處理過程中出錯
+        Exception: If an error occurs during data processing
     """
     try:
-        # 定義雨量標籤
+        # Define rainfall labels
         rain_labels = [
             "Now", "Past10Min", "Past1hr", 
             "Past3hr", "Past6Hr", "Past12hr",
             "Past24hr", "Past2days", "Past3days"
         ]
         
-        # 處理站點數據
+        # Process station data
         stations = []
         
         for station_data in data["records"]["Station"]:
-            # 獲取站點名稱
+            # Get station name
             name = station_data["StationName"]
             
-            # 獲取觀測時間
+            # Get observation time
             time = station_data["ObsTime"]["DateTime"]
             
-            # 獲取位置信息
+            # Get location information
             county = station_data["GeoInfo"]["CountyName"]
             town = station_data["GeoInfo"]["TownName"]
             loc = f"{county},{town}"
             
-            # 找到 WGS84 坐標系統的經緯度
+            # Find WGS84 coordinate system latitude and longitude
             lat = None
             lon = None
             for coord in station_data["GeoInfo"]["Coordinates"]:
@@ -222,7 +222,7 @@ def clean_historical_rainfall_data(data):
                     lon = coord["StationLongitude"]
                     break
             
-            # 獲取各時段雨量數據
+            # Get rainfall data for different time periods
             rainfall_element = station_data["RainfallElement"]
             rain = [
                 rainfall_element["Now"]["Precipitation"],
@@ -236,7 +236,7 @@ def clean_historical_rainfall_data(data):
                 rainfall_element["Past3days"]["Precipitation"]
             ]
             
-            # 添加到結果
+            # Add to result
             station_info = {
                 "name": name,
                 "time": time,
@@ -247,7 +247,7 @@ def clean_historical_rainfall_data(data):
             
             stations.append(station_info)
         
-        # 構建最終結果
+        # Build final result
         result = {
             "rain_labels": rain_labels,
             "stations": stations
@@ -256,4 +256,4 @@ def clean_historical_rainfall_data(data):
         return result
         
     except Exception as e:
-        raise Exception(f"雨量數據清理過程中出錯: {str(e)}")
+        raise Exception(f"Error during rainfall data cleaning: {str(e)}")
