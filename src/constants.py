@@ -11,3 +11,4 @@ VALID_LOCATIONS = ["宜蘭縣", "花蓮縣", "臺東縣", "澎湖縣", "金門�
 # API 端點
 THREE_DAYS_FORECAST_ENDPOINT = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-089"
 ONE_WEEK_FORECAST_ENDPOINT = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091"
+HISTORICAL_RAINFALL_ENDPOINT = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0002-001"

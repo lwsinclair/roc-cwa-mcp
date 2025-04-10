@@ -1,7 +1,7 @@
 import sys
 from mcp.server.fastmcp import FastMCP
-from weather_fetcher import fetch_three_days_forecast, fetch_one_week_forecast
-from weather_processor import clean_three_days_forecast_data, clean_one_week_forecast_data
+from weather_fetcher import fetch_three_days_forecast, fetch_one_week_forecast, fetch_historical_rainfall
+from weather_processor import clean_three_days_forecast_data, clean_one_week_forecast_data, clean_historical_rainfall_data
 from location_validator import validate_location, VALID_LOCATIONS
 
 # 檢查命令行參數
@@ -58,6 +58,21 @@ def get_1_week_weather(location_name: str) -> list:
     
     # 清理和轉換數據
     cleaned_data = clean_one_week_forecast_data(raw_data)
+    
+    return cleaned_data
+
+@mcp.tool()
+def get_historical_rainfall() -> dict:
+    """獲取過去三天的雨量資料
+    
+    Returns:
+        dict: 清理後的雨量資料，包含雨量標籤和各測站雨量資訊
+    """
+    # 獲取雨量數據
+    raw_data = fetch_historical_rainfall(API_KEY)
+    
+    # 清理和轉換數據
+    cleaned_data = clean_historical_rainfall_data(raw_data)
     
     return cleaned_data
 

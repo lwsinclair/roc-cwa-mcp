@@ -177,3 +177,83 @@ def clean_one_week_forecast_data(data):
     
     except Exception as e:
         raise Exception(f"數據清理過程中出錯: {str(e)}")
+
+def clean_historical_rainfall_data(data):
+    """清理和轉換歷史雨量資料
+    
+    Args:
+        data: 原始雨量資料
+        
+    Returns:
+        dict: 處理後的雨量資料，包含雨量標籤和各測站雨量資訊
+        
+    Raises:
+        Exception: 如果數據處理過程中出錯
+    """
+    try:
+        # 定義雨量標籤
+        rain_labels = [
+            "Now", "Past10Min", "Past1hr", 
+            "Past3hr", "Past6Hr", "Past12hr",
+            "Past24hr", "Past2days", "Past3days"
+        ]
+        
+        # 處理站點數據
+        stations = []
+        
+        for station_data in data["records"]["Station"]:
+            # 獲取站點名稱
+            name = station_data["StationName"]
+            
+            # 獲取觀測時間
+            time = station_data["ObsTime"]["DateTime"]
+            
+            # 獲取位置信息
+            county = station_data["GeoInfo"]["CountyName"]
+            town = station_data["GeoInfo"]["TownName"]
+            loc = f"{county},{town}"
+            
+            # 找到 WGS84 坐標系統的經緯度
+            lat = None
+            lon = None
+            for coord in station_data["GeoInfo"]["Coordinates"]:
+                if coord["CoordinateName"] == "WGS84":
+                    lat = coord["StationLatitude"]
+                    lon = coord["StationLongitude"]
+                    break
+            
+            # 獲取各時段雨量數據
+            rainfall_element = station_data["RainfallElement"]
+            rain = [
+                rainfall_element["Now"]["Precipitation"],
+                rainfall_element["Past10Min"]["Precipitation"],
+                rainfall_element["Past1hr"]["Precipitation"],
+                rainfall_element["Past3hr"]["Precipitation"],
+                rainfall_element["Past6Hr"]["Precipitation"],
+                rainfall_element["Past12hr"]["Precipitation"],
+                rainfall_element["Past24hr"]["Precipitation"],
+                rainfall_element["Past2days"]["Precipitation"],
+                rainfall_element["Past3days"]["Precipitation"]
+            ]
+            
+            # 添加到結果
+            station_info = {
+                "name": name,
+                "time": time,
+                "loc": loc,
+                "geo": [lat, lon],
+                "rain": rain
+            }
+            
+            stations.append(station_info)
+        
+        # 構建最終結果
+        result = {
+            "rain_labels": rain_labels,
+            "stations": stations
+        }
+        
+        return result
+        
+    except Exception as e:
+        raise Exception(f"雨量數據清理過程中出錯: {str(e)}")

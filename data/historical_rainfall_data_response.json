@@ -1,0 +1,760 @@
+{
+  "success": "true",
+  "result": {
+    "resource_id": "O-A0002-001",
+    "fields": [
+      {
+        "id": "StationName",
+        "type": "String"
+      },
+      {
+        "id": "StationId",
+        "type": "String"
+      },
+      {
+        "id": "Maintainer",
+        "type": "String"
+      },
+      {
+        "id": "CoordinateName",
+        "type": "String"
+      },
+      {
+        "id": "CoordinateFormat",
+        "type": "String"
+      },
+      {
+        "id": "StationAltitude",
+        "type": "String"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "Float"
+      },
+      {
+        "id": "StationAltitude",
+        "type": "Float"
+      },
+      {
+        "id": "CountyName",
+        "type": "String"
+      },
+      {
+        "id": "TownName",
+        "type": "String"
+      },
+      {
+        "id": "CountyCode",
+        "type": "String"
+      },
+      {
+        "id": "TownCode",
+        "type": "String"
+      },
+      {
+        "id": "Precipitation",
+        "type": "Float"
+      }
+    ]
+  },
+  "records": {
+    "Station": [
+      {
+        "StationName": "九份二山",
+        "StationId": "C1I230",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.963715,
+              "StationLongitude": 120.83685
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.962025,
+              "StationLongitude": 120.84527
+            }
+          ],
+          "StationAltitude": "837.0",
+          "CountyName": "南投縣",
+          "TownName": "國姓鄉",
+          "CountyCode": "10008",
+          "TownCode": "10008100"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0
+          },
+          "Past24hr": {
+            "Precipitation": 2
+          },
+          "Past2days": {
+            "Precipitation": 2
+          },
+          "Past3days": {
+            "Precipitation": 4.5
+          }
+        }
+      },
+      {
+        "StationName": "基隆",
+        "StationId": "466940",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.135103,
+              "StationLongitude": 121.73224
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.133314,
+              "StationLongitude": 121.74048
+            }
+          ],
+          "StationAltitude": "26.7",
+          "CountyName": "基隆市",
+          "TownName": "仁愛區",
+          "CountyCode": "10017",
+          "TownCode": "10017040"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 1
+          },
+          "Past24hr": {
+            "Precipitation": 32
+          },
+          "Past2days": {
+            "Precipitation": 33
+          },
+          "Past3days": {
+            "Precipitation": 38.5
+          }
+        }
+      },
+      {
+        "StationName": "淡水",
+        "StationId": "466900",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.166664,
+              "StationLongitude": 121.44067
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.164888,
+              "StationLongitude": 121.448906
+            }
+          ],
+          "StationAltitude": "19.0",
+          "CountyName": "新北市",
+          "TownName": "淡水區",
+          "CountyCode": "65000",
+          "TownCode": "65000100"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 1
+          },
+          "Past24hr": {
+            "Precipitation": 68.5
+          },
+          "Past2days": {
+            "Precipitation": 69.5
+          },
+          "Past3days": {
+            "Precipitation": 87.5
+          }
+        }
+      },
+      {
+        "StationName": "新北",
+        "StationId": "466881",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 24.96099,
+              "StationLongitude": 121.51697
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 24.959208,
+              "StationLongitude": 121.52519
+            }
+          ],
+          "StationAltitude": "24.5",
+          "CountyName": "新北市",
+          "TownName": "新店區",
+          "CountyCode": "65000",
+          "TownCode": "65000060"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 2.5
+          },
+          "Past24hr": {
+            "Precipitation": 62.5
+          },
+          "Past2days": {
+            "Precipitation": 63
+          },
+          "Past3days": {
+            "Precipitation": 64
+          }
+        }
+      },
+      {
+        "StationName": "陽明山",
+        "StationId": "466930",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.163858,
+              "StationLongitude": 121.53631
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.162079,
+              "StationLongitude": 121.54455
+            }
+          ],
+          "StationAltitude": "607.1",
+          "CountyName": "臺北市",
+          "TownName": "北投區",
+          "CountyCode": "63000",
+          "TownCode": "63000120"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0.5
+          },
+          "Past24hr": {
+            "Precipitation": 52
+          },
+          "Past2days": {
+            "Precipitation": 58.5
+          },
+          "Past3days": {
+            "Precipitation": 88
+          }
+        }
+      },
+      {
+        "StationName": "鞍部",
+        "StationId": "466910",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.184364,
+              "StationLongitude": 121.52149
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 25.182587,
+              "StationLongitude": 121.52973
+            }
+          ],
+          "StationAltitude": "837.6",
+          "CountyName": "臺北市",
+          "TownName": "北投區",
+          "CountyCode": "63000",
+          "TownCode": "63000120"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 2.5
+          },
+          "Past24hr": {
+            "Precipitation": 92.5
+          },
+          "Past2days": {
+            "Precipitation": 93.5
+          },
+          "Past3days": {
+            "Precipitation": 116.5
+          }
+        }
+      },
+      {
+        "StationName": "新竹",
+        "StationId": "467571",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 24.829613,
+              "StationLongitude": 121.00601
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 24.827852,
+              "StationLongitude": 121.01422
+            }
+          ],
+          "StationAltitude": "26.9",
+          "CountyName": "新竹縣",
+          "TownName": "竹北市",
+          "CountyCode": "10004",
+          "TownCode": "10004010"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0.5
+          },
+          "Past24hr": {
+            "Precipitation": 44.5
+          },
+          "Past2days": {
+            "Precipitation": 45.5
+          },
+          "Past3days": {
+            "Precipitation": 45.5
+          }
+        }
+      },
+      {
+        "StationName": "臺中",
+        "StationId": "467490",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 24.147493,
+              "StationLongitude": 120.67591
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 24.145737,
+              "StationLongitude": 120.684074
+            }
+          ],
+          "StationAltitude": "84.0",
+          "CountyName": "臺中市",
+          "TownName": "北區",
+          "CountyCode": "66000",
+          "TownCode": "66000050"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0
+          },
+          "Past24hr": {
+            "Precipitation": 28
+          },
+          "Past2days": {
+            "Precipitation": 28
+          },
+          "Past3days": {
+            "Precipitation": 28
+          }
+        }
+      },
+      {
+        "StationName": "澎湖",
+        "StationId": "467350",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.56722,
+              "StationLongitude": 119.55498
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.565502,
+              "StationLongitude": 119.563095
+            }
+          ],
+          "StationAltitude": "10.7",
+          "CountyName": "澎湖縣",
+          "TownName": "馬公市",
+          "CountyCode": "10016",
+          "TownCode": "10016010"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0
+          },
+          "Past24hr": {
+            "Precipitation": 1
+          },
+          "Past2days": {
+            "Precipitation": 1
+          },
+          "Past3days": {
+            "Precipitation": 1
+          }
+        }
+      },
+      {
+        "StationName": "日月潭",
+        "StationId": "467650",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.883099,
+              "StationLongitude": 120.89991
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.881325,
+              "StationLongitude": 120.90805
+            }
+          ],
+          "StationAltitude": "1017.5",
+          "CountyName": "南投縣",
+          "TownName": "魚池鄉",
+          "CountyCode": "10008",
+          "TownCode": "10008090"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0.5
+          },
+          "Past24hr": {
+            "Precipitation": 0.5
+          },
+          "Past2days": {
+            "Precipitation": 0.5
+          },
+          "Past3days": {
+            "Precipitation": 0.5
+          }
+        }
+      },
+      {
+        "StationName": "阿里山",
+        "StationId": "467530",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.509983,
+              "StationLongitude": 120.80512
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.508207,
+              "StationLongitude": 120.81324
+            }
+          ],
+          "StationAltitude": "2413.4",
+          "CountyName": "嘉義縣",
+          "TownName": "阿里山鄉",
+          "CountyCode": "10010",
+          "TownCode": "10010180"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0
+          },
+          "Past6Hr": {
+            "Precipitation": 0
+          },
+          "Past12hr": {
+            "Precipitation": 0
+          },
+          "Past24hr": {
+            "Precipitation": 0.5
+          },
+          "Past2days": {
+            "Precipitation": 0.5
+          },
+          "Past3days": {
+            "Precipitation": 0.5
+          }
+        }
+      },
+      {
+        "StationName": "玉山",
+        "StationId": "467550",
+        "Maintainer": "中央氣象署",
+        "ObsTime": {
+          "DateTime": "2025-04-11T00:20:00+08:00"
+        },
+        "GeoInfo": {
+          "Coordinates": [
+            {
+              "CoordinateName": "TWD67",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.488964,
+              "StationLongitude": 120.95131
+            },
+            {
+              "CoordinateName": "WGS84",
+              "CoordinateFormat": "decimal degrees",
+              "StationLatitude": 23.48718,
+              "StationLongitude": 120.95943
+            }
+          ],
+          "StationAltitude": "3844.8",
+          "CountyName": "南投縣",
+          "TownName": "信義鄉",
+          "CountyCode": "10008",
+          "TownCode": "10008120"
+        },
+        "RainfallElement": {
+          "Now": {
+            "Precipitation": 0
+          },
+          "Past10Min": {
+            "Precipitation": 0
+          },
+          "Past1hr": {
+            "Precipitation": 0
+          },
+          "Past3hr": {
+            "Precipitation": 0.5
+          },
+          "Past6Hr": {
+            "Precipitation": 0.5
+          },
+          "Past12hr": {
+            "Precipitation": 1
+          },
+          "Past24hr": {
+            "Precipitation": 1
+          },
+          "Past2days": {
+            "Precipitation": 1
+          },
+          "Past3days": {
+            "Precipitation": 1
+          }
+        }
+      }
+    ]
+  }
+}
