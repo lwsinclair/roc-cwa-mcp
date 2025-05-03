@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/stephen9412-roc-cwa-mcp-badge.png)](https://mseep.ai/app/stephen9412-roc-cwa-mcp)
+
 # Taiwan Central Weather Administration MCP Server
 
 This project provides a Model Context Protocol (MCP) server that interfaces with the Taiwan Central Weather Administration (CWA) API, allowing you to easily access weather data for Taiwan.
